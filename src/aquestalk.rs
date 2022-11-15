@@ -1,3 +1,4 @@
+// Aquestalk core
 use libc::{c_char, c_int, c_uchar, c_void};
 use std::{error, ffi::CString, fmt, slice};
 
@@ -14,6 +15,7 @@ extern "C" {
     fn AquesTalk_FreeWave(wav: *const c_uchar) -> c_void;
 }
 
+// This error about aquestalk. Please watch aquestalk official [documentaion](https://www.a-quest.com/archive/manual/prog_guide_linux.pdf).
 #[derive(Debug)]
 pub enum AquesTalkError {
     Error(i32),
@@ -29,6 +31,7 @@ impl fmt::Display for AquesTalkError {
 
 impl std::error::Error for AquesTalkError {}
 
+// This function can do Text to Speach.
 pub fn synthe(text: &str, speed: i32) -> Result<Vec<u8>> {
     let size: i32 = 0;
     let content: CString = CString::new(text).unwrap();
