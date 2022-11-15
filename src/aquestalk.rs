@@ -31,7 +31,10 @@ impl fmt::Display for AquesTalkError {
 
 impl std::error::Error for AquesTalkError {}
 
-// This function can do Text to Speach.
+/// This function can do Text to Speach.
+///
+/// * `text` - Base text
+/// * `speed` - TTS speed
 pub fn synthe(text: &str, speed: i32) -> Result<Vec<u8>> {
     let size: i32 = 0;
     let content: CString = CString::new(text).unwrap();
