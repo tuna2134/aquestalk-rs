@@ -34,7 +34,7 @@ pub fn synthe(text: &str, speed: i32) -> Result<Vec<u8>> {
     let content: CString = CString::new(text).unwrap();
     let phont: *const c_void = std::ptr::null();
     let wav: *const u8 =
-        unsafe { AquesTalk_Synthe_Utf8(content.as_ptr(), speed, &size as *const i32, phont) };
+        unsafe { AquesTalk_Synthe_Utf8(content.as_ptr(), speed, &size as *const i32) };
     if wav.is_null() {
         return Err(Box::new(AquesTalkError::Error(size)));
     }
