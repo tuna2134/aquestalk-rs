@@ -10,7 +10,7 @@ aquestalkを使ってDiscord読み上げbotなどを作成する場合aquestalk�
 
 ```toml
 [dependencies]
-aquestalk = "0.1.1"
+aquestalk = "0.1.2"
 ```
 
 ## Usage
