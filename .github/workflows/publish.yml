@@ -1,0 +1,17 @@
+name: Publish to crates
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+  
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Publish to crates
+        run: cargo publish --token=${{ secrets.CRATES_TOKEN }}
