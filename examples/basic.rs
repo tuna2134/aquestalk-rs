@@ -1,6 +1,8 @@
 extern crate aquestalk;
 
+use std::fs;
 
 fn main() {
-    aquestalk::synthe("こんにちは", 100);
+    let wav = aquestalk::synthe("こんにちは", 100);
+    fs::write("test.wav", wav.to_vec()).unwrap();
 }
