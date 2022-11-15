@@ -32,7 +32,7 @@ impl std::error::Error for AquesTalkError {}
 pub fn synthe(text: &str, speed: i32) -> Result<Vec<u8>> {
     let size: i32 = 0;
     let content: CString = CString::new(text).unwrap();
-    et wav: *const u8 =
+    let wav: *const u8 =
         unsafe { AquesTalk_Synthe_Utf8(content.as_ptr(), speed, &size as *const i32) };
     if wav.is_null() {
         return Err(Box::new(AquesTalkError::Error(size)));
