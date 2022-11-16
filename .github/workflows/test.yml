@@ -29,5 +29,8 @@ jobs:
             ~/.cargo/git/db/
             target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: Build
+        run: cargo build
       - name: Testing
-        run: LD_PRELOAD="../aqtk1-lnx-eva/lib64/dvd/libAquesTalk.so" cargo run --example basic
+        run: |
+          LD_PRELOAD="../aqtk1-lnx-eva/lib64/m1/libAquesTalk.so" cargo run --example basic
