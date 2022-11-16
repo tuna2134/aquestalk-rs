@@ -18,7 +18,7 @@ jobs:
           cd ../
           wget https://www.a-quest.com/archive/package/aqtk1-lnx-eva_171.zip
           unzip aqtk1-lnx-eva_171.zip
-          ls
+          sudo cp ./aqtk1-lnx-eva/lib64/libAquesTalk.so /usr/lib
       - name: Find cache
         uses: actions/cache@v3
         with:
@@ -33,4 +33,4 @@ jobs:
         run: cargo build
       - name: Testing
         run: |
-          LD_PRELOAD="../aqtk1-lnx-eva/lib64/m1/libAquesTalk.so" cargo run --example basic
+          cargo run --example basic
