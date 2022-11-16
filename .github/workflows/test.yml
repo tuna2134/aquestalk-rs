@@ -18,7 +18,7 @@ jobs:
           cd ../
           wget https://www.a-quest.com/archive/package/aqtk1-lnx-eva_171.zip
           unzip aqtk1-lnx-eva_171.zip
-          sudo cp ./aqtk1-lnx-eva/lib64/libAquesTalk.so /usr/lib
+          sudo cp ./aqtk1-lnx-eva/lib64/m1/libAquesTalk.so /usr/lib
       - name: Find cache
         uses: actions/cache@v3
         with:
