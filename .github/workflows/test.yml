@@ -17,7 +17,6 @@ jobs:
         run: |
           wget https://www.a-quest.com/archive/package/aqtk1-lnx-eva_171.zip
           unzip aqtk1-lnx-eva_171.zip
-          cp ./aqtk1-lnx-eva/lib64/dvd/libAquesTalk.so ./
           ls
       - name: Find cache
         uses: actions/cache@v3
@@ -30,4 +29,4 @@ jobs:
             target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - name: Testing
-        run: LD_PRELOAD="./libAquesTalk.so" cargo run --example basic
+        run: LD_PRELOAD="./aqtk1-lnx-eva/lib64/dvd/libAquesTalk.so" cargo run --example basic
