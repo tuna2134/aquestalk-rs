@@ -1,0 +1,21 @@
+name: Testing library
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Install AquesTalk1
+        run: |
+          wget https://www.a-quest.com/archive/package/aqtk1-lnx-eva_171.zip
+          unzip aqtk1-lnx-eva_171.zip
+          sudo cp ./aqtk1-lnx-eva/lib32/dvd/libAquesTalk.so /usr/lib
+      - name: Testing
+        run: cargo run --example basic
