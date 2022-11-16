@@ -16,6 +16,6 @@ jobs:
         run: |
           wget https://www.a-quest.com/archive/package/aqtk1-lnx-eva_171.zip
           unzip aqtk1-lnx-eva_171.zip
-          mv ./aqtk1-lnx-eva/lib32/dvd/libAquesTalk.so .
+          sudo mv ./aqtk1-lnx-eva/lib32/dvd/libAquesTalk.so /usr/lib
       - name: Testing
-        run: LD_PRELOAD="." cargo run --example basic
+        run: cargo run --example basic
