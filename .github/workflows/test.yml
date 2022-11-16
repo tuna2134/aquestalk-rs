@@ -2,6 +2,7 @@ name: Testing library
 
 on:
   push:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -17,5 +18,15 @@ jobs:
           wget https://www.a-quest.com/archive/package/aqtk1-lnx-eva_171.zip
           unzip aqtk1-lnx-eva_171.zip
           cp ./aqtk1-lnx-eva/lib32/dvd/libAquesTalk.so .
+      - name: Find cache
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - name: Testing
         run: LD_PRELOAD="./libAquesTalk.so" cargo run --example basic
