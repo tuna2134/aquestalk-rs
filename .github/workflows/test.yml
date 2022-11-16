@@ -18,4 +18,4 @@ jobs:
           unzip aqtk1-lnx-eva_171.zip
           mv ./aqtk1-lnx-eva/lib32/dvd/libAquesTalk.so .
       - name: Testing
-        run: LD_LIBRARY_PATH="." cargo run --example basic
+        run: LD_PRELOAD="." cargo run --example basic
