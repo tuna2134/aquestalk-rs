@@ -12,3 +12,4 @@ libaquestalk-sys = { version = "0.1.4", optional = true }
 
 [features]
 aquestalk1 = ["libaquestalk-sys"]
+aquestalk2 = ["libaquestalk2-sys"]

@@ -23,13 +23,36 @@ impl std::error::Error for AquesTalkError {}
 pub fn synthe_aquestalk1(text: &str, speed: i32) -> Result<Vec<u8>> {
     let size: i32 = 0;
     let content: CString = CString::new(text).unwrap();
-    let wav: *const u8 =
-        unsafe { libaquestalk_sys::ffi::AquesTalk_Synthe_Utf8(content.as_ptr(), speed, &size as *const i32) };
+    let wav: *const u8 = unsafe {
+        libaquestalk_sys::ffi::AquesTalk_Synthe_Utf8(content.as_ptr(), speed, &size as *const i32)
+    };
     if wav.is_null() {
         return Err(Box::new(AquesTalkError::Error(size)));
     }
     unsafe {
         libaquestalk_sys::ffi::AquesTalk_FreeWave(wav);
+    };
+    return unsafe { Ok(slice::from_raw_parts(wav, size.try_into().unwrap()).to_vec()) };
+}
+
+#[cfg(feature = "aquestalk2")]
+pub fn synthe_aquestalk2(text: &str, speed: i32) -> Result<Vec<v8>> {
+    let size: i32 = 0;
+    let content: CString = CString::new(text).unwrap();
+    let phont: *const c_void = std::ptr::null();
+    let wav: *const u8 = unsafe {
+        libaquestalk2_sys::ffi::AquesTalk2_Synthe_Utf8(
+            content.as_ptr(),
+            speed,
+            &size as *const i32,
+            phont,
+        )
+    };
+    if wav.is_null() {
+        return Err(Box::new(AquesTalkError::Error(size)));
+    }
+    unsafe {
+        libaquestalk2_sys::ffi::AquesTalk2_FreeWave(wav);
     };
     return unsafe { Ok(slice::from_raw_parts(wav, size.try_into().unwrap()).to_vec()) };
 }
