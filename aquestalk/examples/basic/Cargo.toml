@@ -1,11 +1,8 @@
 [package]
-name = "libaquestalk-sys"
-description = "Rust ffi for libaquestalk1"
-license = "MIT"
+name = "basic"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-libc = "0.2.138"
