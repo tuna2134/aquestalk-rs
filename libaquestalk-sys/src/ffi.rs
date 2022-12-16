@@ -9,5 +9,5 @@ extern "C" {
         size: *const c_int,
     ) -> *const c_uchar;
 
-    fn AquesTalk_FreeWave(wav: *const c_uchar) -> c_void;
+    pub fn AquesTalk_FreeWave(wav: *const c_uchar) -> c_void;
 }

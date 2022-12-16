@@ -29,7 +29,7 @@ pub fn synthe_aquestalk1(text: &str, speed: i32) -> Result<Vec<u8>> {
         return Err(Box::new(AquesTalkError::Error(size)));
     }
     unsafe {
-        AquesTalk_FreeWave(wav);
+        libaquestalk_sys::ffi::AquesTalk_FreeWave(wav);
     };
     return unsafe { Ok(slice::from_raw_parts(wav, size.try_into().unwrap()).to_vec()) };
 }

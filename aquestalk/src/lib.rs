@@ -2,4 +2,4 @@
 
 mod aquestalk;
 
-pub use aquestalk::synthe;
+pub use aquestalk::*;
