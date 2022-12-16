@@ -1,3 +1,8 @@
+use aquestalk::synthe_aquestalk1;
+
+use std::fs;
+
 fn main() {
-    println!("Hello, world!");
+    let wav = synthe_aquestalk1("こんにちは", 100).unwrap();
+    fs::write("hello.wav", wav).unwrap();
 }
