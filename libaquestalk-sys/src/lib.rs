@@ -3,4 +3,4 @@
 
 mod ffi;
 
-pub use ffi::*;
+pub use ffi;
