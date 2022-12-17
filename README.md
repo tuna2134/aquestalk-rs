@@ -2,7 +2,7 @@
 
 **Warning** This is now developing. Please use old one.
 
-This is for aquestalk1 rust wrapper.
+This is for aquestalk rust wrapper.
 
 ## 読み上げに使用する際
 
