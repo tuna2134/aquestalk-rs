@@ -1,0 +1,16 @@
+[package]
+name = "aquestalk"
+description = "Aquestalk wrapper for Rust!"
+license = "MIT"
+version = "1.0.0-alpha"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+libaquestalk-sys = { version = "0.1.4", optional = true, path = "../libaquestalk-sys" }
+libaquestalk2-sys = { version = "0.1.0", optional = true, path = "../libaquestalk2-sys" }
+
+[features]
+aquestalk1 = ["libaquestalk-sys"]
+aquestalk2 = ["libaquestalk2-sys"]

@@ -1,8 +1,6 @@
 # aquestalk-rs
 
-**Warning** This is now developing. Please use old one.
-
-This is for aquestalk rust wrapper.
+This is for aquestalk1 rust wrapper.
 
 ## 読み上げに使用する際
 
@@ -14,6 +12,10 @@ aquestalkを使ってDiscord読み上げbotなどを作成する場合aquestalk�
 [dependencies]
 aquestalk = "0.1.2"
 ```
+
+## features
+
+`aquestalk1` - Using aquestalk version 1.
 
 ## Usage
 
@@ -32,7 +34,7 @@ All that!
 
 ```rust
 fn main() {
-    let wav = aquestalk::synthe("こんにちは").unwrap();
+    let wav = aquestalk::synthe_aquestalk1("こんにちは").unwrap();
     std::fs::write("test.wav", wav.to_vec()).unwrap();
 }
 ```
